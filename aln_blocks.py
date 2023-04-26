@@ -6,7 +6,7 @@
 import sys, os, numpy as np, pandas as pd
 from seq_funcs import fasta_to_dict, get_codons, aln_to_df
 #------------------------------Codes-----------------------------------
-def get_aln_block_stats(path_to_fasta_aln, gap_char, verobse): 
+def get_aln_block_stats(path_to_fasta_aln, gap_char, verbose): 
     """calculates statistics for aligned blocks in pairwise or multiple
     sequence alignments"""
 
