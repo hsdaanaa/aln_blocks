@@ -6,9 +6,27 @@
 import sys, os, numpy as np, pandas as pd
 from seq_funcs import fasta_to_dict, get_codons, aln_to_df
 #------------------------------Codes-----------------------------------
-def get_aln_block_stats(pass): 
-    pass
+def get_aln_block_stats(path_to_fasta_aln, gap_char, verobse): 
+    """calculates statistics for aligned blocks in pairwise or multiple
+    sequence alignments"""
 
+    #TODO: add try and except to handle cases where there are no aligned blocks
+        
+    file_name = os.path.basename(path_to_fasta_aln)
+
+    # get block list
+    block_list                = get_aln_block_list(path_to_fasta_aln, gap_char = gap_char, verbose = verbose)
+    block_df                  = pd.DataFrame([block_list]).T.rename({0: 'block_list'}, axis = 1)
+
+    # get stats length of each block and number of matched sites in block
+    block_df['blocklen']      = block_df['block_list'].apply(lambda x: len(x))
+    block_df['matched_sites'] = block_df['block_list'].apply(lambda x: [len(set(i)) == 1 for i in x].count(True))
+
+    block_df.insert(0, 'f_name', file_name)
+
+    block_df = block_df.drop('block_list', axis = 1)
+
+    return block_df
 #----------------------------------------------------------------------
 def get_aln_block_list(path_to_fasta_aln, gap_char = '-', verbose =  0): 
     """outputs blocks of aligned sites (i.e groups of aligned sites that 
