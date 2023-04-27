@@ -1,3 +1,4 @@
+#TODO: cut unnecessary codes
 #! usr/bin/env Python3
 # Functions to extract file paths, list file names and to create new folders
 #------------------------------------------------------

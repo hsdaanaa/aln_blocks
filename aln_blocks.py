@@ -1,4 +1,6 @@
 # #!/usr/bin/python3
+#TODO: add try and except to handle cases where there are no aligned blocks
+#TODO: add version
 #--------------------------Description---------------------------------
 # functions to extract and calculate statistics for blocks of aligned 
 # sites in pairwise or multiple sequence alignments
@@ -9,8 +11,6 @@ from seq_funcs import fasta_to_dict, get_codons, aln_to_df
 def get_aln_block_stats(path_to_fasta_aln, gap_char, verbose): 
     """calculates statistics for aligned blocks in pairwise or multiple
     sequence alignments"""
-
-    #TODO: add try and except to handle cases where there are no aligned blocks
         
     file_name = os.path.basename(path_to_fasta_aln)
 
