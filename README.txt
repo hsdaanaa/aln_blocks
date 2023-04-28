@@ -11,3 +11,9 @@ output
 statistics for each block
     length of block
     number of matched sites in block
+    
+    
+TODO
+-----
+exceptions
+commenting
