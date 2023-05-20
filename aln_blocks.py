@@ -4,6 +4,7 @@
 #--------------------------Description---------------------------------
 # functions to extract and calculate statistics for blocks of aligned 
 # sites in pairwise or multiple sequence alignments
+# revise verbose
 #--------------------------Dependencies--------------------------------
 import sys, os, numpy as np, pandas as pd
 from seq_funcs import fasta_to_dict, get_codons, aln_to_df
